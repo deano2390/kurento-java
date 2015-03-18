@@ -15,6 +15,14 @@
 package org.kurento.test.client;
 
 import static org.kurento.commons.PropertiesManager.getProperty;
+import static org.kurento.test.TestConfiguration.SAUCELAB_KEY_PROPERTY;
+import static org.kurento.test.TestConfiguration.SAUCELAB_USER_PROPERTY;
+import static org.kurento.test.TestConfiguration.TEST_NODE_LOGIN_PROPERTY;
+import static org.kurento.test.TestConfiguration.TEST_NODE_PASSWD_PROPERTY;
+import static org.kurento.test.TestConfiguration.TEST_NODE_PEM_PROPERTY;
+import static org.kurento.test.TestConfiguration.TEST_PUBLIC_IP_DEFAULT;
+import static org.kurento.test.TestConfiguration.TEST_PUBLIC_IP_PROPERTY;
+import static org.kurento.test.TestConfiguration.TEST_PUBLIC_PORT_PROPERTY;
 
 import java.io.Closeable;
 import java.io.File;
@@ -29,7 +37,6 @@ import org.kurento.test.grid.GridHandler;
 import org.kurento.test.grid.GridNode;
 import org.kurento.test.services.AudioChannel;
 import org.kurento.test.services.KurentoServicesTestHelper;
-import org.kurento.test.services.SshConnection;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -87,12 +94,6 @@ public class BrowserClient implements Closeable {
 	private String login;
 	private String passwd;
 	private String pem;
-
-	public static final String SAUCELAB_USER_PROPERTY = "saucelab.user";
-	public static final String SAUCELAB_KEY_PROPERTY = "saucelab.key";
-	public static final String TEST_PUBLIC_IP_PROPERTY = "test.public.ip";
-	public static final String TEST_PUBLIC_IP_DEFAULT = "127.0.0.1";
-	public static final String TEST_PUBLIC_PORT_PROPERTY = "test.public.port";
 
 	public BrowserClient(Builder builder) {
 		this.builder = builder;
@@ -273,15 +274,13 @@ public class BrowserClient implements Closeable {
 			GridNode node = null;
 
 			if (login != null) {
-				System.setProperty(SshConnection.TEST_NODE_LOGIN_PROPERTY,
-						login);
+				System.setProperty(TEST_NODE_LOGIN_PROPERTY, login);
 			}
 			if (passwd != null) {
-				System.setProperty(SshConnection.TEST_NODE_PASSWD_PROPERTY,
-						passwd);
+				System.setProperty(TEST_NODE_PASSWD_PROPERTY, passwd);
 			}
 			if (pem != null) {
-				System.setProperty(SshConnection.TEST_NODE_PEM_PROPERTY, pem);
+				System.setProperty(TEST_NODE_PEM_PROPERTY, pem);
 			}
 
 			if (!hostAddress.equals(publicIp)
