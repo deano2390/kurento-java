@@ -143,6 +143,7 @@ public class GridHandler {
 					stopNode(node);
 				}
 			}
+			nodes.clear();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
