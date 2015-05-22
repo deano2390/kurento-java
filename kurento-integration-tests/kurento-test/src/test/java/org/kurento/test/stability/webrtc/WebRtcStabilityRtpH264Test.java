@@ -19,6 +19,7 @@ import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.Parameterized.Parameters;
 import org.kurento.client.MediaPipeline;
@@ -81,6 +82,7 @@ public class WebRtcStabilityRtpH264Test extends StabilityTest {
 		return Arrays.asList(new Object[][] { { test } });
 	}
 
+	@Ignore
 	@Test
 	public void testWebRtcStabilityRtpH264() throws Exception {
 		final int playTime = Integer.parseInt(System.getProperty(
