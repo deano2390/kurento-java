@@ -77,7 +77,8 @@ public class CompositeWebRtcTest extends FunctionalTest {
 		TestScenario test = new TestScenario();
 		test.addBrowser(BROWSER1,
 				new BrowserClient.Builder().browserType(BrowserType.CHROME)
-						.scope(BrowserScope.LOCAL).build());
+						.client(Client.WEBRTC).scope(BrowserScope.LOCAL)
+						.build());
 		test.addBrowser(
 				BROWSER2,
 				new BrowserClient.Builder().browserType(BrowserType.CHROME)
@@ -105,7 +106,6 @@ public class CompositeWebRtcTest extends FunctionalTest {
 		return Arrays.asList(new Object[][] { { test } });
 	}
 
-	// @Ignore
 	@Test
 	public void testCompositeWebRtcChrome() throws Exception {
 		doTest(BrowserType.CHROME);
