@@ -2,10 +2,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<parent>
-		<groupId>org.kurento</groupId>
-		<artifactId>kurento-qa-pom</artifactId>
-		<version>1.0.2</version>
+	 	<groupId>com.github.deano2390.kurento-qa-pom</groupId>
+	    	<artifactId>kurento-qa-config</artifactId>
+	    	<version>1.0.3</version>
 		<relativePath></relativePath>
 	</parent>
 
